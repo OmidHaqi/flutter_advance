@@ -4,6 +4,7 @@ import '../../../../core/error/failures.dart';
 import '../../domain/entities/product.dart';
 import '../../domain/repositories/product_repository.dart';
 import '../datasources/product_local_data_source.dart';
+
 @Injectable(as: ProductRepository)
 class ProductRepositoryImpl implements ProductRepository {
   final ProductLocalDataSource localDataSource;
@@ -11,7 +12,8 @@ class ProductRepositoryImpl implements ProductRepository {
   ProductRepositoryImpl({required this.localDataSource});
 
   @override
-  Future<Either<Failure, List<Product>>> getProducts({bool useCache = true}) async {
+  Future<Either<Failure, List<Product>>> getProducts(
+      {bool useCache = true}) async {
     try {
       final products = useCache
           ? localDataSource.getProductsFromHive()

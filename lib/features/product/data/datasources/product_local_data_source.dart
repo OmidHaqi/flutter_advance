@@ -8,6 +8,7 @@ abstract class ProductLocalDataSource {
   List<Product> getProductsFromHive();
   Future<void> cacheProducts(Product product);
 }
+
 @Injectable(as: ProductLocalDataSource)
 class ProductLocalDataSourceImpl implements ProductLocalDataSource {
   final Database database;
@@ -21,15 +22,17 @@ class ProductLocalDataSourceImpl implements ProductLocalDataSource {
   @override
   Future<List<Product>> getProductsFromSQLite() async {
     final List<Map<String, dynamic>> maps = await database.query('products');
-    
-    return maps.map((map) => Product(
-      id: map['id'],
-      name: map['name'],
-      price: map['price'],
-      stock: map['stock'],
-      categories: (map['categories'] as String).split(','),
-      createdAt: DateTime.parse(map['created_at']),
-    )).toList();
+
+    return maps
+        .map((map) => Product(
+              id: map['id'],
+              name: map['name'],
+              price: map['price'],
+              stock: map['stock'],
+              categories: (map['categories'] as String).split(','),
+              createdAt: DateTime.parse(map['created_at']),
+            ))
+        .toList();
   }
 
   @override
@@ -39,7 +42,6 @@ class ProductLocalDataSourceImpl implements ProductLocalDataSource {
 
   @override
   Future<void> cacheProducts(Product product) async {
-    // Save to SQLite
     await database.insert(
       'products',
       {

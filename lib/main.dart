@@ -8,7 +8,7 @@ import 'injection.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   final appDocumentDir = await getApplicationDocumentsDirectory();
   Hive.init(appDocumentDir.path);
 
@@ -22,11 +22,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'فروشگاه',
+      title: 'Store',
       theme: ThemeData(primarySwatch: Colors.blue),
       home: BlocProvider(
-        create: (context) => getIt<ProductBloc>()
-          ..add(const ProductEvent.fetchProducts()),
+        create: (context) =>
+            getIt<ProductBloc>()..add(const ProductEvent.fetchProducts()),
         child: ProductListPage(),
       ),
     );

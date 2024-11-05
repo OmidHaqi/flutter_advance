@@ -11,7 +11,7 @@ final getIt = GetIt.instance;
 
 @module
 abstract class DatabaseModule {
-  @preResolve  
+  @preResolve
   @singleton
   Future<Database> provideDatabase() async {
     final dbPath = await getDatabasesPath();
@@ -47,8 +47,8 @@ abstract class DatabaseModule {
 }
 
 @InjectableInit(
-  initializerName: 'setupDependencies', 
-  preferRelativeImports: true, 
+  initializerName: 'setupDependencies',
+  preferRelativeImports: true,
   asExtension: false,
 )
 Future<void> configureDependencies() async => await setupDependencies(getIt);
