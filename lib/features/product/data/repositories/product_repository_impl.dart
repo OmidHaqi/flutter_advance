@@ -3,7 +3,7 @@ import 'package:injectable/injectable.dart';
 import '../../../../core/error/failures.dart';
 import '../../domain/entities/product.dart';
 import '../../domain/repositories/product_repository.dart';
-import '../datasources/product_local_data_source.dart';
+import '../data_sources/product_local_data_source.dart';
 
 @Injectable(as: ProductRepository)
 class ProductRepositoryImpl implements ProductRepository {

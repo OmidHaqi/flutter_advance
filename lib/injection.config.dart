@@ -13,7 +13,7 @@ import 'package:hive/hive.dart' as _i979;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:sqflite/sqflite.dart' as _i779;
 
-import 'features/product/data/datasources/product_local_data_source.dart'
+import 'features/product/data/data_sources/product_local_data_source.dart'
     as _i210;
 import 'features/product/data/repositories/product_repository_impl.dart'
     as _i531;
