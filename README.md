@@ -5,7 +5,7 @@ A Flutter project implementing Clean Architecture principles and BLoC pattern fo
 
 
 > [!IMPORTANT] Project Purpose
->This project serves as a practical example of implementing modern Flutter development practices and showcasing the usage of several important packages:
+> This project serves as a practical example of implementing modern Flutter development practices and showcasing the usage of several important packages:
 
 ### Featured Packages Showcase
 
