@@ -87,16 +87,24 @@ lib/
 
 ```yaml
 dependencies:
-  flutter_bloc: ^8.1.3
-  freezed_annotation: ^2.4.1
-  json_serializable: ^6.7.1
+  dartz: ^0.10.1
+  flutter_bloc: ^8.1.6
+  freezed_annotation: ^2.4.4
+  get_it: ^8.0.2
   hive: ^2.2.3
   hive_flutter: ^1.1.0
-  sqflite: ^2.3.0
-  path: ^1.8.3
-  dartz: ^0.10.1
-  get_it: ^7.6.4
-  injectable: ^2.3.2
+  injectable: ^2.5.0
+  json_annotation: ^4.9.0
+  json_serializable: ^6.8.0
+  path: ^1.9.0
+  path_provider: ^2.1.5
+  sqflite: ^2.4.0
+
+dev_dependencies:
+  build_runner: ^2.4.13
+  freezed: ^2.5.7
+  hive_generator: ^2.0.1
+  injectable_generator: ^2.6.2
 ```
 
 ## Architecture Layers
