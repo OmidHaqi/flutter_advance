@@ -4,7 +4,8 @@
 A Flutter project implementing Clean Architecture principles and BLoC pattern for state management. The project features product management with data persistence using both SQLite and Hive.
 
 
-> [!IMPORTANT] Project Purpose
+> [!IMPORTANT]
+> Project Purpose
 > This project serves as a practical example of implementing modern Flutter development practices and showcasing the usage of several important packages:
 
 ### Featured Packages Showcase
