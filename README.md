@@ -1,9 +1,67 @@
+
 # Store App with Clean Architecture and BLoC
 
 A Flutter project implementing Clean Architecture principles and BLoC pattern for state management. The project features product management with data persistence using both SQLite and Hive.
 
-> [!IMPORTANT]
-> The purpose of this code is to use `dartz`,`freezed` , `injectable` ,in the program.
+
+> [!IMPORTANT] Project Purpose
+>This project serves as a practical example of implementing modern Flutter development practices and showcasing the usage of several important packages:
+
+### Featured Packages Showcase
+
+1. **`dartz` Package Usage**
+   - Implementing functional programming concepts
+   - Using `Either` for better error handling
+   - Example:
+   ```dart
+   Future<Either<Failure, List<Product>>> getProducts({bool useCache = true});
+   ```
+
+2. **`freezed` Package Implementation**
+   - Creating immutable data classes
+   - Pattern matching with sealed unions
+   - Example:
+   ```dart
+   @freezed
+   class Product with _$Product {
+     const factory Product({
+       required String id,
+       required String name,
+       required int price,
+     }) = _Product;
+   }
+   ```
+
+3. **`injectable` Dependency Injection**
+   - Automatic dependency injection setup
+   - Clean dependency management
+   - Example:
+   ```dart
+   @injectable
+   class GetProducts implements UseCase<List<Product>, bool> {
+     final ProductRepository repository;
+     GetProducts(this.repository);
+   }
+   ```
+
+4. **`json_serializable` Usage**
+   - Automated JSON serialization/deserialization
+   - Type-safe JSON handling
+   - Example:
+   ```dart
+   @JsonSerializable()
+   class Product {
+     factory Product.fromJson(Map<String, dynamic> json) => 
+       _$ProductFromJson(json);
+     Map<String, dynamic> toJson() => _$ProductToJson(this);
+   }
+   ```
+
+### Learning Outcomes
+- Understanding functional programming in Dart with `dartz`
+- Implementing immutable state management using `freezed`
+- Setting up dependency injection with `injectable`
+- Managing JSON serialization with `json_serializable`
 
 ## Project Structure
 
@@ -28,25 +86,16 @@ lib/
 
 ```yaml
 dependencies:
-  dartz: ^0.10.1
-  flutter_bloc: ^8.1.6
-  freezed_annotation: ^2.4.4
-  get_it: ^8.0.2
+  flutter_bloc: ^8.1.3
+  freezed_annotation: ^2.4.1
+  json_serializable: ^6.7.1
   hive: ^2.2.3
   hive_flutter: ^1.1.0
-  injectable: ^2.5.0
-  json_annotation: ^4.9.0
-  json_serializable: ^6.8.0
-  path: ^1.9.0
-  path_provider: ^2.1.5
-  sqflite: ^2.4.0
-
-dev_dependencies:
-  flutter_lints: ^5.0.0
-  build_runner: ^2.4.13
-  freezed: ^2.5.7
-  hive_generator: ^2.0.1
-  injectable_generator: ^2.6.2
+  sqflite: ^2.3.0
+  path: ^1.8.3
+  dartz: ^0.10.1
+  get_it: ^7.6.4
+  injectable: ^2.3.2
 ```
 
 ## Architecture Layers
